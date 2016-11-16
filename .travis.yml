@@ -1,9 +1,7 @@
 language: java
 branches:
   only:
-    - master
-    - Develop
-    - feature/feature-10-apigateway
+    - develop
 
 notifications:
   slack: teambash-iu:Kumv5imwDciZcFQ2KvvUHIje
@@ -31,7 +29,7 @@ deploy:
     acl: public_read
     detect_encoding: true
     on:
-      branch: feature/feature-10-apigateway
+      branch: develop
 
   - provider: codedeploy
     access_key_id: $AWS_ACCESS_KEY # declared in Travis repo settings
@@ -43,4 +41,4 @@ deploy:
     deployment_group: TeamBash-Test
     region: us-west-2
     on:
-      branch: feature/feature-10-apigateway
+      branch: develop
