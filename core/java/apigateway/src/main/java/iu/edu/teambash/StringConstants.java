@@ -11,5 +11,4 @@ public class StringConstants {
     public static final String RUN_FORECAST = "http://52.25.123.69:8200/runweatherforecast";
     public static final String CREATE_USER = "http://52.25.123.69:9999/createUser/";
     public static final String REGISTRY = "http://52.25.123.69:9999/registry/";
-
 }
