@@ -13,9 +13,9 @@ public class GetZooNode {
     private static String availableIPAddress = null;
     public GetZooNode(){
         List<String> ipAddresses = new LinkedList<>();
-        ipAddresses.add("ec2-52-15-86-225.us-east-2.compute.amazonaws.com");
-        ipAddresses.add("ec2-52-15-134-78.us-east-2.compute.amazonaws.com");
-        ipAddresses.add("ec2-54-183-208-134.us-west-1.compute.amazonaws.com");
+        ipAddresses.add("ec2-52-15-48-215.us-east-2.compute.amazonaws.com");
+        ipAddresses.add("ec2-52-15-170-115.us-east-2.compute.amazonaws.com");
+        ipAddresses.add("ec2-52-52-172-203.us-west-1.compute.amazonaws.com");
         //URI uri = null;
         //String response = null;
         int count = 0;

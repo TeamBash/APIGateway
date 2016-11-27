@@ -25,7 +25,7 @@ public class APIGatewayApplication extends Application<APIGatewayConfiguration> 
     @Override
     public void run(final APIGatewayConfiguration configuration,
                     final Environment environment) {
-        GetZooNode add = new GetZooNode();
+
         final DataIngestorResource dataIngestorResource = new DataIngestorResource();
         final StormDetectionResource stormDetectionResource = new StormDetectionResource();
         final ForecastTriggerResource forecastTriggerResource = new ForecastTriggerResource();
