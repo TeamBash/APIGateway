@@ -28,7 +28,7 @@ import java.util.List;
 public class DataIngestorResource extends AbstractResource {
 
     private static int index = 0;
-    String availableIPAddress = null;
+    private String availableIPAddress = null;
 
     private static int getIndex(){
         return index;
@@ -46,7 +46,7 @@ public class DataIngestorResource extends AbstractResource {
         availableIPAddress = node.getNodeAddress();
     }
 
-    public String delegate(){
+    private String delegate(){
         System.out.println("System starting to delegate: ");
 
         CuratorFramework curatorFramework = CuratorFrameworkFactory.newClient(availableIPAddress+":2181", new RetryNTimes(5,1000));
