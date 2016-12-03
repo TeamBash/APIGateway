@@ -7,6 +7,8 @@ import io.dropwizard.db.DataSourceFactory;
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 
+
+
 public class APIGatewayConfiguration extends Configuration {
     @Valid
     @NotNull
@@ -21,4 +23,5 @@ public class APIGatewayConfiguration extends Configuration {
     public void setDataSourceFactory(DataSourceFactory factory) {
         this.database = factory;
     }
+
 }

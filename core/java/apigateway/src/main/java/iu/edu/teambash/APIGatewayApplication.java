@@ -25,11 +25,12 @@ public class APIGatewayApplication extends Application<APIGatewayConfiguration> 
     @Override
     public void run(final APIGatewayConfiguration configuration,
                     final Environment environment) {
+
         final DataIngestorResource dataIngestorResource = new DataIngestorResource();
         final StormDetectionResource stormDetectionResource = new StormDetectionResource();
         final ForecastTriggerResource forecastTriggerResource = new ForecastTriggerResource();
         final StormClusteringResource clusteringResource = new StormClusteringResource();
-        final LoginResource loginResource = new LoginResource();
+        final UserResource userResource = new UserResource();
         final RunWeatherForecastResource runWeatherForecastResource = new RunWeatherForecastResource();
         final RegistryResource registryResource = new RegistryResource();
         final TemplateHealthCheck healthCheck =
@@ -39,7 +40,7 @@ public class APIGatewayApplication extends Application<APIGatewayConfiguration> 
         environment.jersey().register(stormDetectionResource);
         environment.jersey().register(forecastTriggerResource);
         environment.jersey().register(clusteringResource);
-        environment.jersey().register(loginResource);
+        environment.jersey().register(userResource);
         environment.jersey().register(runWeatherForecastResource);
         environment.jersey().register(registryResource);
     }
