@@ -9,3 +9,5 @@ Weather Predictor - Milestone -1
 ==============================
 
 Build Status - API Gateway  : [![Build Status](https://travis-ci.org/airavata-courses/TeamBash.svg?branch=feature%2Ffeature-10-apigateway)](https://travis-ci.org/airavata-courses/TeamBash)
+
+Please refer [here](https://github.com/TeamBash/UI/wiki) for the wiki of the Application 
