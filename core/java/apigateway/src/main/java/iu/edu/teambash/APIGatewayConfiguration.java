@@ -8,7 +8,6 @@ import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 
 
-
 public class APIGatewayConfiguration extends Configuration {
     @Valid
     @NotNull

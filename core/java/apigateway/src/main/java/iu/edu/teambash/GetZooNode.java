@@ -11,39 +11,36 @@ import java.util.List;
  */
 public class GetZooNode {
     private static String availableIPAddress = null;
-    public GetZooNode(){
+
+    public GetZooNode() {
         List<String> ipAddresses = new LinkedList<>();
         ipAddresses.add("ec2-52-15-48-215.us-east-2.compute.amazonaws.com");
         ipAddresses.add("ec2-52-15-170-115.us-east-2.compute.amazonaws.com");
         ipAddresses.add("ec2-52-52-172-203.us-west-1.compute.amazonaws.com");
-        //URI uri = null;
-        //String response = null;
         int count = 0;
-        for(String ip : ipAddresses){
+        for (String ip : ipAddresses) {
             count++;
-            try{
-                if(InetAddress.getByName(ip).isReachable(3000)) {
+            try {
+                if (InetAddress.getByName(ip).isReachable(3000)) {
                     availableIPAddress = ip;
                     break;
                 }
-            }
-            catch (UnknownHostException e) {
+            } catch (UnknownHostException e) {
                 e.printStackTrace();
-            }
-            catch (IOException e) {
+            } catch (IOException e) {
                 e.printStackTrace();
             }
         }
-        if(count == ipAddresses.size() && availableIPAddress == null){
-            try{
-                throw new NoZooKeeperServerUpException();
-            } catch (NoZooKeeperServerUpException e) {
+        if (count == ipAddresses.size() && availableIPAddress == null) {
+            try {
+                throw new ZooKeeperServerUpException(StringConstants.NO_SERVER_EXCEPTION);
+            } catch (ZooKeeperServerUpException e) {
                 e.printStackTrace();
             }
         }
     }
 
-    public String getNodeAddress(){
+    public String getNodeAddress() {
         return availableIPAddress;
     }
 }

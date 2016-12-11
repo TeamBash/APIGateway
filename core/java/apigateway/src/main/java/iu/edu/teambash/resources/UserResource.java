@@ -6,9 +6,7 @@ package iu.edu.teambash.resources;
 
 import com.codahale.metrics.annotation.Timed;
 import iu.edu.teambash.StringConstants;
-import org.glassfish.jersey.client.ClientConfig;
 import org.glassfish.jersey.client.JerseyClientBuilder;
-import org.glassfish.jersey.client.authentication.HttpAuthenticationFeature;
 
 import javax.ws.rs.Consumes;
 import javax.ws.rs.POST;
