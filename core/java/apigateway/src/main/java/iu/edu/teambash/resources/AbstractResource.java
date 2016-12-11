@@ -25,9 +25,9 @@ import java.util.List;
 public class AbstractResource {
 
     protected Response invokeRemoteService(int id, int uid, String url, String request, String accept, String method, Entity em) {
-        int logId = Integer.valueOf(invokeService(StringConstants.REGISTRY + "startLog/" + uid + "/" + id, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON, HttpMethod.POST, null).readEntity(String.class));
+        int logId = Integer.valueOf(invokeService(StringConstants.REGISTRY + "registry/startLog/" + uid + "/" + id, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON, HttpMethod.POST, null).readEntity(String.class));
         Response response = invokeService(url, request, accept, method, em);
-        invokeService(StringConstants.REGISTRY + "endLog/" + logId, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON, HttpMethod.POST, null);
+        invokeService(StringConstants.REGISTRY + "registry/endLog/" + logId, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON, HttpMethod.POST, null);
         if (response.getStatus() != Response.Status.OK.getStatusCode()) {
             throw new WebApplicationException(url, response.getStatus());
         }
@@ -59,10 +59,15 @@ public class AbstractResource {
             e.printStackTrace();
         }
 
+        finally {
+            //serviceDiscovery.close();
+            curatorFramework.close();
+        }
+
         return serviceProvider;
     }
 
-    protected String getAddress(ServiceProvider<Void> serviceProvider, int currentIndex){
+    protected String getAddress(ServiceProvider<Void> serviceProvider, int currentIndex) {
         String address = null;
         try {
             List<ServiceInstance<Void>> instances = (List<ServiceInstance<Void>>) serviceProvider.getAllInstances();
@@ -73,6 +78,7 @@ public class AbstractResource {
         } catch (Exception e) {
             e.printStackTrace();
         }
+
         return address;
     }
 }

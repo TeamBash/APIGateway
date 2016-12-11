@@ -33,6 +33,7 @@ public class APIGatewayApplication extends Application<APIGatewayConfiguration> 
         final UserResource userResource = new UserResource();
         final RunWeatherForecastResource runWeatherForecastResource = new RunWeatherForecastResource();
         final RegistryResource registryResource = new RegistryResource();
+        final JobsResource jobsResource = new JobsResource();
         final TemplateHealthCheck healthCheck =
                 new TemplateHealthCheck("hello");
         environment.healthChecks().register("template", healthCheck);
@@ -43,6 +44,7 @@ public class APIGatewayApplication extends Application<APIGatewayConfiguration> 
         environment.jersey().register(userResource);
         environment.jersey().register(runWeatherForecastResource);
         environment.jersey().register(registryResource);
+        environment.jersey().register(jobsResource);
     }
 
 }
