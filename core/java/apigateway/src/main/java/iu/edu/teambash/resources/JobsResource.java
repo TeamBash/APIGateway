@@ -45,9 +45,9 @@ public class JobsResource extends AbstractResource {
 
     }
 
-    @POST
-    @Path("/restartJob/{uid}/")
-    public Response restartJob(String jobName, @PathParam("uid") int uid){
+    @GET
+    @Path("/restartJob/{uid}/{jobName}")
+    public Response restartJob(@PathParam("jobName") String jobName, @PathParam("uid") int uid){
         ServiceProvider<Void> serviceProvider = delegate(availableIPAddress, "runWeatherForecast");
         String runWeatherForecast = getAddress(serviceProvider, index);
         index++;
